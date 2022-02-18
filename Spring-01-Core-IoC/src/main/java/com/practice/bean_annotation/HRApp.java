@@ -13,6 +13,12 @@ public class HRApp {
         fullTimeEmployee ft = container.getBean(fullTimeEmployee.class);
        ft.createAccount();
 
+
+        consultantEmployee ct = container.getBean(consultantEmployee.class);
+        ct.createAccount();
+
+
+
       String str = container.getBean(String.class);
         System.out.println(str);
     }
