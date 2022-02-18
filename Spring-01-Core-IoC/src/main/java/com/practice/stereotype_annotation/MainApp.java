@@ -8,5 +8,8 @@ public class MainApp {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(ConfigCourse.class);
 
+        context.getBean(Java.class).getTeachingHours();
+
+
     }
 }
