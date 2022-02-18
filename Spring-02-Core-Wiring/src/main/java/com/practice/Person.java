@@ -6,7 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-    public class Car {
-        private String make;
-    }
+public class Person {
+    private String name;
+    private Car car;
+}
 
