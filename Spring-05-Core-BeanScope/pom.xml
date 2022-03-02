@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>Spring-04-Abstraction</artifactId>
+    <groupId>com.cydeo</groupId>
+    <artifactId>Spring-05-Core-BeanScope</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -25,6 +26,7 @@
             <version>1.18.22</version>
         </dependency>
 
-
     </dependencies>
+
+
 </project>
