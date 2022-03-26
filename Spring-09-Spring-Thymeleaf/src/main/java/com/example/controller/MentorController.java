@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/mentor")
-public class MentorController {
+public class  MentorController {
     @GetMapping("/register")
     public String showForm(Model model){
 
