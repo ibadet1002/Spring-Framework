@@ -3,8 +3,10 @@ package com.example.bootstrap;
 import com.example.entity.Car;
 import com.example.repository.CarRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class DataGenerator implements CommandLineRunner {
     CarRepository carRepository;
 
