@@ -2,10 +2,10 @@ package com.example.bootstrap;
 
 import com.example.entity.Department;
 import com.example.entity.Employee;
+import com.example.entity.Region;
 import com.example.enums.Gender;
 import com.example.repository.DepartmentRepository;
 import com.example.repository.EmployeeRepository;
-import com.example.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,23 +17,24 @@ import java.util.List;
 @Component
 public class DataGenerator implements CommandLineRunner {
 
-    DepartmentRepository departmentRepository;
+  //  DepartmentRepository departmentRepository;
     EmployeeRepository employeeRepository;
-    RegionRepository regionRepository;
+  //  RegionRepository regionRepository;
 
-    public DataGenerator(DepartmentRepository departmentRepository, EmployeeRepository employeeRepository, RegionRepository regionRepository) {
-        this.departmentRepository = departmentRepository;
+
+    public DataGenerator(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
-        this.regionRepository = regionRepository;
-
     }
+
+
 
     @Override
     public void run(String... args) throws Exception {
 
 
         List<Employee> employeeList= new ArrayList<>();
-        List<Department> departmentList= new ArrayList<>();
+      //  List<Department> departmentList= new ArrayList<>();
+     //   List<Region> regionList= new ArrayList<>();
 
         Employee e1 = new Employee("Berrie", "Manueau", "bmanueau0@dion.ne.jp", LocalDate.of(2006,04,20), Gender.F,154864);
         Employee e2 = new Employee("Aeriell", "McNee", "amcnee1@google.es", LocalDate.of(2009,01,26), Gender.F,56752);
@@ -47,10 +48,30 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
 
+        Region r1 = new Region("Southwest","United States");
+        Region r2 = new Region("Central","United States");
+        Region r3 = new Region("Northwest","United States");
+        Region r4 = new Region("Quebec'","Canada");
+        Region r5 = new Region("Central","Asia");
+
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e4.setDepartment(d4);
+        e5.setDepartment(d5);
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
+
         employeeList.addAll(Arrays.asList(e1,e2, e3, e4, e5));
-        departmentList.addAll(Arrays.asList(d1, d2, d3, d4, d5));
+       // departmentList.addAll(Arrays.asList(d1, d2, d3, d4, d5));
+
 
         employeeRepository.saveAll(employeeList);
-        departmentRepository.saveAll(departmentList);
+       // departmentRepository.saveAll(departmentList);
+
     }
 }

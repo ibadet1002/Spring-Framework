@@ -9,11 +9,16 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name="regions")
-public class Region {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int regionId;
+public class Region extends BaseEntity{
 
     private String region;
     private String country;
+
+    @OneToOne(mappedBy = "region")
+    private Employee employee;
+
+    public Region(String region, String country) {
+        this.region = region;
+        this.country = country;
+    }
 }
