@@ -18,9 +18,11 @@ public class Course {
     private String name;
     @Column(name = "CATEGORY")
     private String category;
+    @Column(name = "RATING")
     private int rating;
     @Column(name = "DESCRIPTION")
     private String description;
+
 
 
 }

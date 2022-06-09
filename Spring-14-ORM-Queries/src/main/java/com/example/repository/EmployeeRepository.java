@@ -55,51 +55,51 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("SELECT e FROM Employee e WHERE e.email=?1 AND e.salary=?2")
     Employee getEmployeeDetail(String email,int salary);
 
-    // not equal
-    @Query
-            ("SELECT e FROM Employee e WHERE e.salary <> ?1")
+    //Not Equal
+    @Query("SELECT e FROM Employee e WHERE e.salary <> ?1 ")
     List<Employee> getEmployeeSalaryNotEqual(int salary);
 
-    // like /contains / startsWith / endsWith
+    //like/contains/startswith/endswith
     @Query("SELECT e FROM Employee e WHERE e.firstName LIKE ?1")
     List<Employee> getEmployeeFirstNameLike(String pattern);
 
-    // less than
+    //less than
     @Query("SELECT e FROM Employee e WHERE e.salary < ?1")
     List<Employee> getEmployeeSalaryLessThan(int salary);
 
-    // greater than
+    //greater than
     @Query("SELECT e FROM Employee e WHERE e.salary > ?1")
-    List<Employee> getEmployeeSalaryGraterThan(int salary);
+    List<Employee> getEmployeeSalaryGreaterThan(int salary);
 
-   // before
-   @Query("SELECT e FROM Employee e WHERE e.hireDate > ?1")
-   List<Employee> getEmployeeHireDateBefore(LocalDate date);
+    //Before
+    @Query("SELECT e FROM Employee e WHERE e.hireDate > ?1")
+    List<Employee> getEmployeeHireDateBefore(LocalDate date);
 
-    // between
-    @Query("SELECT e FROM Employee e WHERE e.salary > ?1 and e.salary < ?2")
-    List<Employee> getEmployeeSalaryBetween(int salary1, int salary2);
+    //Between
+    @Query("SELECT e FROM Employee e WHERE e.salary BETWEEN ?1 AND ?2")
+    List<Employee> getEmployeeSalaryBetween(int salary1,int salary2);
 
-    // null
+    //Null
     @Query("SELECT e FROM Employee e WHERE e.email IS NULL")
     List<Employee> getEmployeeEmailIsNull();
 
-    // not null
+    //Not Null
     @Query("SELECT e FROM Employee e WHERE e.email IS NOT NULL")
     List<Employee> getEmployeeEmailIsNotNull();
 
-    // sorting in ascending order
+    //Sorting in ascending order
     @Query("SELECT e FROM Employee e ORDER BY e.salary")
-    List<Employee> getEmployeeSalaryAsc();
+    List<Employee> getEmployeeSalaryOrderAsc();
 
-    // sorting in descending order
-    @Query("SELECT e FROM Employee e ORDER BY e.salary DESC")
-    List<Employee> getEmployeeSalaryDesc();
+    //Sorting in descending order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary DESC ")
+    List<Employee> getEmployeeSalaryOrderDesc();
 
-    @Query(value = "SELECT * FROM employees WHERE salary?1", nativeQuery = true)
+
+    @Query(value = "SELECT * FROM employees WHERE salary ?1",nativeQuery = true)
     List<Employee> readEmployeeDetailBySalary(int salary);
 
-    @Query("SELECT e FROM Employee e WHERE e.salary = :salary")
+    @Query("select e from Employee e where e.salary = :salary")
     List<Employee> getEmployeeSalary(@Param("salary") int salary);
 
     @Modifying
@@ -111,4 +111,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Transactional
     @Query(value = "UPDATE employees SET email = 'admin@email.com' WHERE id=:id",nativeQuery = true)
     void updateEmployeeNativeQuery(@Param("id") int id);
+
 }

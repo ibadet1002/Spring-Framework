@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import javax.transaction.Transactional;
 
 @Component
-@Transactional
 public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
@@ -58,24 +57,34 @@ public class DataGenerator implements CommandLineRunner {
 
         System.out.println("-----------------EMPLOYEE  END-----------------");
 
+        System.out.println("-----------------COURSE START-----------------");
 
-        System.out.println("-----------------Course START-----------------");
+        courseRepository.findByCategory("Spring").forEach(System.out::println);
 
-     courseRepository.findByCategory("Spring").forEach(System.out::println);
-        System.out.println("---------------");
+        System.out.println("---------------------------");
+
         courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
-        System.out.println("---------------");
-        System.out.println(courseRepository.existsByName("Javscript"));
-        System.out.println("---------------");
+
+        System.out.println("---------------------------");
+
+        System.out.println(courseRepository.existsByName("JavaScript for All"));
+
+        System.out.println("---------------------------");
+
         System.out.println(courseRepository.countByCategory("Spring"));
-        System.out.println("---------------");
+
+        System.out.println("---------------------------");
+
         courseRepository.findByNameStartsWith("Scalable").forEach(System.out::println);
-        System.out.println("---------------");
+
+        System.out.println("---------------------------");
 
         courseRepository.streamByCategory("Spring").forEach(System.out::println);
 
 
-        System.out.println("-----------------Course  END-----------------");
+
+        System.out.println("-----------------COURSE  END-----------------");
+
 
     }
 }
