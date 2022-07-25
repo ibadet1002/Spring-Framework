@@ -10,9 +10,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-
-import javax.persistence.*;
-
 @Entity
 @Getter
 @Setter

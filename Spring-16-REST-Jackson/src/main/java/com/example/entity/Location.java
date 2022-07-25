@@ -1,5 +1,4 @@
 package com.example.entity;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +12,7 @@ public class Location extends BaseEntity {
 
     private String name;
     private BigDecimal latitude;
-    private BigDecimal langitude;
+    private BigDecimal longitude;
     private String postalCode;
     private String country;
     private String state;

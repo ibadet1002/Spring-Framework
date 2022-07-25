@@ -22,5 +22,4 @@ public class MovieCinema extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
-
 }
